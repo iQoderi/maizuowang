@@ -1,8 +1,10 @@
 <template>
   <div class="main">
+    <Navbar></Navbar>
     <div class="application-view">
       <router-view></router-view>
     </div>
+    <Sidebar/>
     <div id="nprogress">
       <div class="spinner" role="spinner" v-show="loading">
         <div class="spinner-icon"></div>
@@ -11,37 +13,55 @@
   </div>
 </template>
 
-<script>
-
-export default {
-  name: 'app',
-  components: {
-
+<script lang="babel">
+  import Navbar from  './components/navbar'
+  import Sidebar from './components/sidebar.vue'
+  export default {
+    name: 'app',
+    components: {
+      Navbar,Sidebar
+    }
   }
-}
 
 </script>
 
 <style lang="less">
   @import "assets/styles/icon.css";
-  @import "assets/styles/reset.css";  .application-view{
+  @import "assets/styles/reset.css";
+
+  .application-view {
     padding: 50px 0 0;
   }
-  body{
+
+  body {
     background-color: #ebebeb;
   }
-  *{
+
+  * {
     box-sizing: border-box;
   }
-  img{
-    width: 100%; transition: all 1.2s ease; opacity: 1;
+
+  img {
+    width: 100%;
+    transition: all 1.2s ease;
+    opacity: 1;
   }
+
   @-webkit-keyframes nprogress-spinner {
-    0%   { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
   }
+
   @keyframes nprogress-spinner {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 </style>
