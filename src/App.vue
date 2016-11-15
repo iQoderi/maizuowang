@@ -1,8 +1,10 @@
 <template>
   <div class="main">
     <div class="application-view">
+      <Navbar/>
       <router-view></router-view>
     </div>
+    <Sidebar/>
     <div id="nprogress">
       <div class="spinner" role="spinner" v-show="loading">
         <div class="spinner-icon"></div>
@@ -11,12 +13,13 @@
   </div>
 </template>
 
-<script>
-
+<script lang="babel">
+import  Navbar from './components/navbar.vue'
+import Sidebar from './components/sidebar.vue'
 export default {
   name: 'app',
   components: {
-
+    Navbar,Sidebar
   }
 }
 
