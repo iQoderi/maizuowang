@@ -10,7 +10,7 @@ const mutations = {
   [types.START_LOADING](state){
     state.loading = true
   },
-  [types.START_LOADING](state){
+  [types.STOP_LOADING](state){
     state.loading = false
   }
 }

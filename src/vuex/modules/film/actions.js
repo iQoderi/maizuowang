@@ -21,8 +21,8 @@ export const fetchComingSoonLists = ({commit}, page, count)=> {
     _t: new Date().getTime()
   }).then((json)=> {
     commit(appTypes.STOP_LOADING)
-    if (json.status === 0) {
-      return commit(filmTypes.FETCH_COMING_SOON_SUCCESS, json.data)
+    if (json.body.status === 0) {
+      return commit(filmTypes.FETCH_COMING_SOON_SUCCESS, json.body.data)
     }
     return Promise.reject(new Error('fetchFilmsLists failure'))
   }).catch((error) => {
@@ -44,9 +44,10 @@ export const fetchNowPlayingLists = ({commit}, page, count)=> {
     count,
     _t: new Date().getTime()
   }).then((json)=> {
+    console.log(json.body)
     commit(appTypes.STOP_LOADING)
-    if (json.status === 0) {
-      return commit('FETCH_NOW_PLAYING_SUCCESS', json.data)
+    if (json.body.status === 0) {
+      return commit('FETCH_NOW_PLAYING_SUCCESS', json.body.data)
     }
     return Promise.reject(new Error('FETCH_NOW_PLAYING failure'))
   }).catch((error) => {
@@ -65,7 +66,7 @@ export const fetchFilmDetail = ({commit}, id)=> {
   commit(appTypes.START_LOADING)
   film.get({id, _t: new Date().getTime()}).then((json)=> {
     commit(appTypes.STOP_LOADING)
-    if (json.status === 0) {
+    if (json.body.status === 0) {
       return commit(filmTypes.FETCH_DETAIL_SUCCESS)
     } else {
       return Promise.reject(new Error("fetch detail fail"))
@@ -75,6 +76,25 @@ export const fetchFilmDetail = ({commit}, id)=> {
   })
 }
 
+/**
+ * 获取广告
+ * @param commit
+ */
+export const fetchBillboards = ({commit})=> {
+  const bills = API.filmBill;
+  commit(appTypes.START_LOADING)
+  bills.get({
+    _t: new Date().getTime()
+  }).then((json)=> {
+    commit(appTypes.STOP_LOADING)
+    if (json.body.status === 0) {
+      return commit(filmTypes.FETCH_BANNER_SUCCESS, json.body.data)
+    }
+    return Promise.reject(new Error('FETCH_BANNER_SUCCESS failure'))
+  }).catch((error) => {
+    return Promise.reject(error)
+  })
+}
 
 
 

@@ -10,9 +10,9 @@ const __APIHOST__ = 'http://m.maizuo.com/v4/api'
 
 const apiMaker = (path, option)=> {
   if (option) {
-    return vm.$resource(`${__APIHOST__}/path`, option)
+    return vm.$resource(`${__APIHOST__}/${path}`, option)
   } else {
-    return vm.$resource(`${__APIHOST__}/path`)
+    return vm.$resource(`${__APIHOST__}/${path}`)
   }
 }
 
