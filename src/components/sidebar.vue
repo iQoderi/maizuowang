@@ -1,7 +1,7 @@
 <template>
   <aside class="application-sidebar">
     <!--<transition name="sidebar">-->
-    <div class="sidebar-container">
+    <div class="sidebar-container" @click="hideNav(false)" v-show="show">
       <div class="sidebar-overlay">
         <transition name="leftNav">
           <nav>
@@ -87,17 +87,26 @@
 
   }
 </style>
-<script>
-
-    export default{
-        data(){
-        let menuList = [{name: '首页', path: '/'}, {name: '影片', path: '/film'}, {name: '影院', path: '/cinema'}, {name: '我的', path: '/login'}, {name: '卖座网查询', path: '/card'}]
-            return{menuList}
-
-        },
-        components:{
-
-        }
+<script lang="babel">
+  import {mapGetters, mapActions} from 'vuex';
+  export default{
+    data(){
+      let menuList = [{name: '首页', path: '/'}, {name: '影片', path: '/film'}, {name: '影院', path: '/cinema'}, {
+        name: '我的',
+        path: '/login'
+      }, {name: '卖座网查询', path: '/card'}]
+      return {menuList}
+    },
+    computed: {
+      ...mapGetters({
+        show: 'getLeftNavState'
+      })
+    },
+    methods: {
+      ...mapActions({
+        hideNav: 'changeLeftNavState'
+      })
     }
+  }
 
 </script>

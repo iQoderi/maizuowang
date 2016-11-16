@@ -1,6 +1,6 @@
 <template>
   <div id="toolbar">
-    <h1>
+    <h1 @click="showNav">
       <a href="javascript:;">
         <div class="toolbar-title-icon">
           <i class="iconfont icon-list"></i>
@@ -38,16 +38,16 @@
       font-size: 16px;
       line-height: 50px;
       text-align: left;
-      text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
       width: auto;
       height: 50px;
       margin: 0 auto;
       float: left;
-      a{
+      a {
         font-size: 16px;
         line-height: 50px;
         text-align: left;
-        text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
         .toolbar-title-icon {
           float: left;
           width: 48px;
@@ -69,6 +69,7 @@
       }
     }
   }
+
   #nav-right {
     float: right;
     .city {
@@ -87,17 +88,13 @@
     }
   }
 </style>
-<script>
-
-    export default{
-        data(){
-            return{
-            }
-        },
-        components:{
-
-        }
+<script lang="babel">
+  import {mapActions} from 'vuex'
+  export default{
+    methods:{
+      ...mapActions({
+        showNav:'changeLeftNavState'
+      })
     }
-
-
+  }
 </script>
