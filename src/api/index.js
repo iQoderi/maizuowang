@@ -17,5 +17,9 @@ const apiMaker = (path, option)=> {
 }
 
 export default {
-  login: apiMaker('/user/login')
+  login: apiMaker('/user/login'),
+  comingSoonFilms: apiMaker('/film/coming-soon'),
+  nowPlayFilms: apiMaker('/film/now-playing'),
+  filmDetail: apiMaker('/film/{id}', {id: 'id'}),
+  filmBill: apiMaker('/billboard/home')
 }
