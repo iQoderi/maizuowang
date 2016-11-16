@@ -18,7 +18,15 @@
     <!--</transition>-->
   </aside>
 </template>
+
 <style lang="less">
+  .leftNav-enter-active, .leftNav-leave-active {
+    transition: right ease .4s;
+    -webkit-transition: right ease .4s;
+  }
+  .leftNav-enter, .leftNav-leave-active {
+    right: 380px;
+  }
   .application-sidebar {
     .sidebar-enter-active, .sidebar-leave-active {
       transition: all ease .4s;
@@ -47,13 +55,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        .leftNav-enter-active, .leftNav-leave--active {
-          transition: right ease .4s;
-          -webkit-transition: right ease .4s;
-        }
-        .leftNav-enter, .leftNav-leave--active {
-          right: 380px;
-        }
+
         nav {
           border-top: 1px solid #222;
           box-shadow: 0 1px 1px #363636 inset;

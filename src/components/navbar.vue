@@ -1,6 +1,6 @@
 <template>
   <div id="toolbar">
-    <h1 @click="showNav">
+    <h1 @click="showNav(true)">
       <a href="javascript:;">
         <div class="toolbar-title-icon">
           <i class="iconfont icon-list"></i>

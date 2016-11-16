@@ -12,7 +12,12 @@ window.addEventListener('load', ()=> {
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+
+//router config
 const router = new VueRouter({routes: routerConfig})
+
+//api config
+import './api';
 
 /* eslint-disable no-new */
 new Vue({
