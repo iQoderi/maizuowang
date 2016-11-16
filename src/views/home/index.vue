@@ -1,7 +1,6 @@
 <template>
   <div>
-    indexdawdawdadeada
-    daedadada大
+    index
   </div>
 </template>
 <style>
