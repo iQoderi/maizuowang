@@ -7,6 +7,7 @@
   </div>
   <ul>
     <film-item type="COMING_SOON" v-for="film in films" :film="film"></film-item>
+    <router-link to='/film/comingSoon'><more-button>更多即将上映电影</more-button></router-link>
   </ul>
     </div>
 </template>
@@ -35,6 +36,7 @@
 
 <script>
   import FilmItem from '../../components/film-item'
+  import MoreButton from '../../components/more-button.vue'
   export default{
     props: {
       films: {
@@ -43,7 +45,7 @@
       }
     },
     components: {
-      FilmItem
+      FilmItem,MoreButton
     }
   }
 </script>

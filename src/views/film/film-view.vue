@@ -1,17 +1,20 @@
 <template>
-
   <section class="film-view">
     <div class="film-list-wrap">
       <div class="film-list-nav">
-        <a href="javascript:void(0);" @click="changeTab('NOW_PLAYING')">
-          <div class="now-playing" :class="{'choosing':curTab=='NOW_PLAYING'}">正在热映</div>
-        </a>
-        <a href="javascript:void(0);" @click="changeTab('COMING_SOON')">
-          <div class="coming-soon" :class="{'choosing':curTab=='COMING_SOON'}">即将上映</div>
-        </a>
+        <router-link
+          class="now-playing"
+          activeClass="choosing"
+          :to="{path:'/film/nowPlaying'}">
+          正在热映
+        </router-link>
+        <router-link
+          class="coming-soon"
+          activeClass="choosing"
+          :to="{path:'/film/comingSoon'}">即将上映
+        </router-link>
       </div>
-      <now-playing v-if="curTab==='NOW_PLAYING'"></now-playing>
-      <coming-soon v-if="curTab==='COMING_SOON'"></coming-soon>
+      <router-view></router-view>
     </div>
   </section>
 </template>
@@ -49,23 +52,5 @@
 </style>
 
 <script>
-  import Navbar from '../../components/navbar'
-  import ComingSoon from './coming-soon'
-  import NowPlaying from './now-playing'
 
-  export default{
-    data () {
-      return {
-        curTab: 'NOW_PLAYING'
-      }
-    },
-    methods: {
-      changeTab (name) {
-        this.curTab = name
-      }
-    },
-    components: {
-      Navbar, ComingSoon, NowPlaying
-    }
-  }
 </script>

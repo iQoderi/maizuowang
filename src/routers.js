@@ -13,7 +13,19 @@ export default [{
 }, {
   path: "/film",
   name: 'film',
-  component: require('./views/film/film-view.vue')
+  component: require('./views/film/film-view.vue'),
+  children: [
+    {
+      path: 'nowPlaying',
+      name: 'nowPlaying',
+      component: require('./views/film/now-playing.vue')
+    },
+    {
+      path: 'comingSoon',
+      name: 'comingSoon',
+      component: require('./views/film/coming-soon.vue')
+    }
+  ]
 }, {
   path: '/detail/:id',
   name: 'detail',
@@ -22,7 +34,4 @@ export default [{
   path: '/card',
   name: 'card',
   component: require('./views/card/index')
-}, {
-  path: '*',
-  component: require('./views/home/index')
-}]
+}, ]
