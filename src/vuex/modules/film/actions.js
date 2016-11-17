@@ -67,7 +67,7 @@ export const fetchFilmDetail = ({commit}, id)=> {
   film.get({id, _t: new Date().getTime()}).then((json)=> {
     commit(appTypes.STOP_LOADING)
     if (json.body.status === 0) {
-      return commit(filmTypes.FETCH_DETAIL_SUCCESS)
+      return commit(filmTypes.FETCH_DETAIL_SUCCESS,json.body.data)
     } else {
       return Promise.reject(new Error("fetch detail fail"))
     }

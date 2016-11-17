@@ -11,6 +11,7 @@
       </swiper>
       <div class="movie">
         <now-playing :films="nowPlayingFilms"></now-playing>
+        <coming-soon :films="comingSoonFilms"></coming-soon>
       </div>
     </section>
 </template>
@@ -36,6 +37,7 @@
 <script lang="babel">
   import ImagePlaceholder from '../../components/image-placeholder'
   import NowPlaying from './now-playing.vue'
+  import ComingSoon from './coming-soon'
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
   import {mapGetters} from 'vuex';
   export default{
@@ -56,7 +58,7 @@
       this.$store.dispatch('fetchBillboards')
     },
     components: {
-      swiper, swiperSlide, ImagePlaceholder,NowPlaying
+      swiper, swiperSlide, ImagePlaceholder,NowPlaying,ComingSoon
     }
   }
 
